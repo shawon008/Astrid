@@ -24,15 +24,6 @@ ul {
   list-style: none; /* Remove default bullets */
 }
 
-ul li::before {
-  content: "\2022";
-  color: rgba(185, 185, 185, 0.705);
-  font-weight: bold;
-  display: inline-block;
-  width: 1em;
-  margin-left: -1em;
-}
-
 /* END Global section */
 
 /* Header section */
@@ -186,8 +177,14 @@ button {
 #services .services-title {
   text-transform: uppercase;
   border-bottom: 1px dashed burlywood;
-  margin-bottom: 40px;
-  padding-bottom: 7px;
+  display: block;
+  font-weight: 300;
+  font-size: 2.5rem;
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 6%;
+  padding-bottom: 3%;
 }
 
 #services h1 {
@@ -250,13 +247,17 @@ button {
 }
 
 #about-us h1 {
-  margin-top: 10%;
-  border-bottom: 1px solid gray;
-  text-align: center;
+  display: block;
   color: white;
   font-weight: 300;
-  font-size: 40px;
+  font-size: 2.5rem;
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: center;
   text-transform: uppercase;
+  border-bottom: 1px dashed white;
+  padding-top: 6%;
+  padding-bottom: 3%;
 }
 
 #about-us P {
@@ -304,13 +305,17 @@ button {
 }
 
 #facts .facts-title h1 {
-  color: whitesmoke;
+  display: block;
+  color: white;
   font-weight: 300;
-  font-size: 2.1rem;
+  font-size: 2.5rem;
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: center;
   text-transform: uppercase;
-  border-bottom: 1px dashed gray;
-  margin-bottom: 30px;
-  padding-bottom: 10px;
+  border-bottom: 1px dashed white;
+  padding-top: 6%;
+  padding-bottom: 3%;
 }
 
 #facts .fact-sec {
@@ -341,6 +346,10 @@ button {
   font-size: 1.3rem;
   font-weight: 300;
   color: gray;
+}
+
+#facts .facts .facts-item {
+  padding: 25px;
 }
 
 /* END Facts section */
@@ -391,6 +400,15 @@ button {
   text-align: center;
   padding: 20px 25px;
 }
+
+#team .team-sec img {
+  max-width: 80%;
+}
+
+#team .team-sec a:hover {
+  color: rgba(253, 178, 151, 0.795);
+}
+
 /* END Team section */
 
 /* Work section */
@@ -411,18 +429,23 @@ button {
 }
 
 #work .wleft-col h1 {
-  margin-top: 10%;
-  border-bottom: 1px solid gray;
-  text-align: center;
+  display: block;
   color: white;
   font-weight: 300;
-  font-size: 40px;
+  font-size: 2.5rem;
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: center;
   text-transform: uppercase;
-  margin-bottom: 60px;
+  border-bottom: 1px dashed white;
+  padding-top: 6%;
+  padding-bottom: 3%;
 }
 
 #work .wleft-col p {
   font-weight: 100;
+  color: rgb(179, 178, 178);
+  margin-top: 60px;
 }
 
 #work {
@@ -434,11 +457,33 @@ button {
 #work .wright-col {
   background-image: url(/img/Card.jpg);
   background-size: cover;
-  backdrop-filter: blur;
+  filter: blur(0.6px);
   padding: 10px;
   width: 59%;
   height: 500px;
   overflow: hidden;
+}
+
+#work .wright-col-3 {
+  background-image: url(/img/Card.jpg);
+  background-size: cover;
+  filter: blur(0.6px);
+  padding: 10px;
+  width: 59%;
+  height: 500px;
+  overflow: hidden;
+}
+
+#work .wright-col-3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: -1;
 }
 
 #work .dream {
@@ -511,27 +556,58 @@ button {
   font-weight: 100;
 }
 
-#project .project .project-bot .project-bot-sec1 {
+.project-con1 {
   display: flex;
-}
-#project .project .project-bot .project-bot-sec2 {
-  display: flex;
-}
-#project .project .project-bot .img {
-  width: 25%;
-  height: 220px;
-  overflow: hidden;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  transition: 0.5s ease;
 }
 
-#project .project .project-bot::hover {
-  color: #202529;
-  cursor: pointer;
+.project-con2 {
+  display: flex;
 }
+
+.project-item {
+  position: relative;
+  width: 50%;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: #5f5f5fbe;
+}
+
+.project-item:hover .overlay {
+  opacity: 1;
+}
+
+.pro-link a {
+  color: rgba(255, 255, 255, 0.596);
+  font-size: 20px;
+  font-weight: 300;
+  border-top: 1px solid rgba(255, 255, 255, 0.596);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.596);
+  padding: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-decoration: none;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
 /* END Project section */
 
 /* Test section */
@@ -655,6 +731,15 @@ button {
   line-height: 1.8rem;
 }
 
+#link .link .link-section ul li::before {
+  content: "\2022";
+  color: rgba(185, 185, 185, 0.705);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
 #link .link .link-section h1 {
   font-weight: 300;
   color: white;
@@ -689,13 +774,13 @@ button {
 
 #contact .contact {
   display: flex;
-  border-top: 1px solid gray;
-  border-bottom: 1px solid gray;
-  padding: 10px;
+  border-top: 1px solid rgba(192, 190, 190, 0.253);
+  border-bottom: 1px solid rgba(192, 190, 190, 0.253);
 }
 
 #contact .contact .logo {
-  margin-right: 1px solid gray;
+  border-right: 1px solid rgba(192, 190, 190, 0.253);
+  padding: 50px;
 }
 
 #contact .contact .contact-sec {
@@ -719,3 +804,54 @@ button {
 }
 
 /* END Contact section */
+
+/* Footer section */
+
+#footer {
+  background-color: #242a30;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 15vh;
+}
+
+#footer .footer-list {
+  padding: 6vh;
+  margin-left: 6vw;
+}
+
+#footer .footer-list ul {
+  list-style: none;
+  display: flex;
+}
+
+#footer .footer-list a {
+  color: gray;
+  padding: 15px;
+  font-weight: 300;
+}
+
+#footer .footer-list a:hover {
+  color: rgba(252, 193, 172, 0.774);
+}
+
+#footer .footer-area {
+  display: flex;
+}
+
+#footer .footer-area .trademark {
+  color: gray;
+  font-weight: 300;
+  padding: 6vh;
+  margin-left: 33vw;
+}
+
+#footer .footer-area .trademark a {
+  color: gray;
+}
+
+#footer .footer-area .trademark a:hover {
+  color: rgba(252, 193, 172, 0.774);
+}
+/* END Footer section */
